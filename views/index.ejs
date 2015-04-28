@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>网址导航</title>
+    <link href="plugins/site/1.1/release/framework.min.css" rel="stylesheet" type="text/css" />
+	<link href="plugins/site/site.css" rel="stylesheet" type="text/css" />		
+	<link rel="stylesheet" href="plugins/asyncBox/skins/Chrome/asyncbox.css" />
+    <style type="text/css">
+		.w_content{margin-top:0}
+		.w_paragraph{line-height:30px;}	
+		.spnNav{padding:5px 0px;background-color:#F0F0F0;width:80px;display:inline-block;text-align:center;}
+		.txtSearch{height:30px;width:180px;color:#969696;margin-right:5px;line-height:30px;padding-left:5px;}
+		.barTitle{font-size:15px;color:#0f0f0f;font-weight:bold;}
+		.barTitle2{font-size:13px;color:#0f0f0f;padding-top:5px;}
+		.block{width:160px;height:60px;overflow:hidden;}
+		.blockTitle{display:block;color:#0069c3;font-size:14px;padding:0 5px;}
+		.blockBody{display:block;color:#969696;font-size:13px;line-height:20px;padding:5px;border-right:0px solid #DFE0E1;border-left:0px solid #DFE0E1;}
+		#divCan a{text-decoration:none;margin-right:-1px;padding-top:12px;}
+		a:hover{background-color:#ebf5ff;}
+		a:hover .blockTitle{color:#ff8700;text-decoration:underline;}
+		a:hover .blockBody{color:#373737}
+		
+		#divImgLinks{height:70px;background-color:#F0F0F0;}
+		#divImgLinks img{margin:0 2px;cursor:pointer;width:70px;height:70px;}
+		hr{border:none;color:#EBEBEB;height:1px;margin-bottom:10px;}
+		#divContactBar{height:40px;background-color:#F0F0F0;}
+		a.u_iconBack{margin-left:20px;}
+		.aboutus{padding-bottom:5px;}
+		.aboutus a{background-color:#373737;color:#dcdcdc;font-size:13px;padding:0 10px;text-decoration:none;}
+		.aboutus a:hover{color:#fff;}
+		#listIcon img{margin:0 5px;cursor:pointer;}
+		
+		.tdAddr{width:230px;text-align:left;padding-top:10px;}
+		.tdAddr div{font-size:14px;line-height:20px;}	
+		#oldpage:hover{color:#fff;}		
+	</style>
+</head>
+<body scroll="no">
+<div class="w_wrapper1" style="min-width:980px;">	
+	<div class="w_header">
+	</div>
+	<div class="w_content">	
+		<div class="w_layoutB_180"> 
+			<div class="w_leftFix" style="background:#373737;"> 
+				<div class="u_navLeftA" style="width:175px;overflow:auto;" id="favcmd"> 
+					<ul>     
+						<li class="w_sect">菜单收藏夹<span class="" style="cursor:pointer;padding-left:35px;" id="oldpage">旧版首页</span></li>
+							<li><a href="###">研报分类浏览</a></li>
+							<li><a href="###">中国宏观数据</a></li>
+							<li><a href="###">中国金融数据</a></li>
+							<li><a href="###">中国产业数据</a></li>
+							<li><a href="###">基金数据浏览器</a></li>
+							<li><a href="###">基金比较</a></li>
+							<li><a href="###">基金筛选</a></li>
+							<li><a href="###">银行理财产品大全</a></li>
+							<li><a href="###">券商资管综合统计</a></li>
+							<li><a href="###">信托综合统计</a></li>
+					</ul> 
+				</div>
+				<div id="divManager">
+				</div>
+			</div> 
+			<div class="w_fluid"> 
+				<div class="w_block1" id="main">
+					<div class="w_block" id="divImgLinksCan">
+						<div id="divImgLinks" class="u_pdx">
+							<img src="plugins/page/images/icon/top_nav.png" alt="" />
+							<img url="http://61.129.69.247/gispage/index.html" src="plugins/page/images/icon/top_otc.png" alt="" />
+							<img out="1" url="http://live.wallstreetcn.com" src="plugins/page/images/icon/top_hej.png" alt="" />
+							<img url="http://61.152.115.138/info-product/stockclinicmain.do" src="plugins/page/images/icon/top_gg.png" alt="" />
+							<img out="1" url="http://datacenter.cngrain.com/" src="plugins/page/images/icon/top_zhlw.png" alt="" />
+						</div>
+						<div class="w_block u_ply"><span class="spnNav">网址导航</span><span class="u_iconList" id="spnIconList"></span></div>
+					</div>
+					<div class=" u_hidden u_ply" id="divNavCan">
+						<div id="nav" class="w_tabsA u_inline" style="float:left;">
+							<ul> 						
+								<% nodes.forEach(function(m, index) {%>
+									<%if( m.text == "我的收藏"){%>
+										<li><a id="<%=m.id%>" class="orange"><%=m.text%></a></li>
+									<%}else{%>
+										<li><a id="<%=m.id%>"><%=m.text%></a></li>
+									<%}%>
+								<%});%>
+							</ul> 
+						</div>
+						<form id="myform" class="u_inline" style="float:right;margin-right:18px;">
+							<input type="text" class="txtSearch" value=""/><a class="u_btnSearch" id="btnSearch"></a>
+							<input type="text" class="u_hide"/>
+							<a class="u_reset" id="btnReset" title="重置"></a>
+						</form>
+					</div>					
+					<div class="u_ply u_clear">
+						<div class="w_block1" id="divCan" style="overflow-y:auto;">	
+							<div class="w_block">
+								<div class="barTitle">财经媒体</div>
+								<div class="barTitle2">证券交易所</div>
+								<div class="u_body">
+									<a class="block u_inline">
+										<span class="blockTitle">中国证券报</span>
+										<span class="blockBody">中国证券报中国证券报中国证券报中国证券报</span>
+									</a>
+								</div>
+								<hr />
+							</div>
+						</div>
+						<iframe src="" frameborder="0" id="ifm" name="ifm" class="u_hide" style="border:0;width:100%;height:100%;"></iframe>					
+					</div>
+				</div>
+				<div class="w_block1 u_hide" id="other">
+					<div id="otherBar" style="padding:10px;background-color:#F0F0F0;">
+						<a class="u_iconBack" style="float:left;"></a>
+						<ul class="w_tabs" style="float:right;">
+							<li><a href="###bar1">免责申明</a></li>
+							<li><a href="###bar2" id="toBar2">联系我们</a></li>
+						</ul>
+						<div class="u_clear"></div>
+					</div>
+					<div class="w_block1 w_ac" id="otherBody">
+						<div id="bar1" style="font-size:15px;margin:0 200px;color:#969696;">
+							<div class="w_paragraph">
+								港澳资讯产业股份有限公司及其关联公司（以下简称港澳资讯）尽最大诚信和努力收集及传送数据，但不对收集数据的真实性及传输过程中发生的传送错误承担更正以外的法律责任。港澳资讯通过本终端产品以及各类隶属于本终端产品的指标汇编作品、函数汇编作品、专题统计报表汇编作品、深度资料汇编作品提供给用户的所有信息、数据、模板、界面、工具仅供用户及其客户参考，港澳资讯及相关合作伙伴对因数据错误、传送错误、网络故障、功能缺陷及其他可能的质量缺陷或错误造成用户及其客户业务所受的实际或期待利益损失不承担责任，用户有责任知会其所有使用者。
+							</div>
+							<div class="w_paragraph">
+								本终端产品以及各类隶属于本终端产品的指标汇编作品、函数汇编作品、专题统计报表汇编作品、深度资料汇编作品提供的信息中所引述机构或个人的观点、言论、数据及其他信息仅作参考和资讯传播之目的，不代表港澳资讯赞同其观点或证实其描述，请客户自行判断，港澳资讯无需承担任何责任。
+							</div>
+						</div>						
+						<div id="bar2" class="u_hide">
+							<div class="u_autoy" id="mapCan" style="height:400px;"><img src="plugins/page/images/map.png" alt=""/></div>
+							<div class="w_block1" id="addrCan" style="background:#16a085;height:200px;">
+								<center>
+								<table style="width:520px;color:#fff;">
+									<tr>
+										<td style="width:30px;">
+											<img src="plugins/page/images/position.gif" alt=""/>
+										</td>
+										<td class="tdAddr">
+											<div style="font-size:15px;"><b>北京</b></div>
+											<div>北京市东城区东直门南大街11号</div>
+											<div>中汇广场B座1203-8,100007</div>
+											<div>(86)10-5763 6631</div>
+										</td>
+										<td style="width:30px;">
+											<img src="plugins/page/images/position.gif" alt="" />
+										</td>
+										<td class="tdAddr">
+											<div  style="font-size:15px;"><b>深圳</b></div>
+											<div>深圳市福田区益田路西、福中路北</div>
+											<div>新世界商务中心602,518033</div>
+											<div>(86)755-3335 6120</div>
+										</td>
+									</tr>									
+									<tr>
+										<td style="width:30px;">
+											<img src="plugins/page/images/position.gif" alt="" />
+										</td>
+										<td class="tdAddr">
+											<div  style="font-size:15px;"><b>成都</b></div>
+											<div>成都市锦东路668号</div>
+											<div>新世界广场2102,610066</div>
+											<div>(86)28-8600 9386</div>
+										</td>
+										<td style="width:30px;">
+											<img src="plugins/page/images/position.gif" alt="" />
+										</td>
+										<td class="tdAddr">
+											<div  style="font-size:15px;"><b>海口</b></div>
+											<div>海口市国贸路36号</div>
+											<div>嘉陵国际大厦9楼，570125</div>
+											<div>(86)898-6851 3921</div>
+										</td>
+									</tr>
+								</table>
+								</center>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w_block u_pdx u_hide" id="listIcon">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="w_footer">
+	</div>
+</div>
+<script src="plugins/jquery-1.3.2.js" type="text/javascript"></script>
+<script src="plugins/site/site.js" type="text/javascript"></script>
+<script src="plugins/calendar/calendar.js" type="text/javascript"></script>
+<script type="text/javascript" src="plugins/asyncBox/asyncbox.js"></script>
+<script type="text/javascript" src="plugins/page/js/index.js"></script>
+</body>
+</html>

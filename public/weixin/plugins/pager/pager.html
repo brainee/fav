@@ -1,0 +1,107 @@
+﻿<style type="text/css">
+	.pageBar{ text-align:right; padding-top:10px;}
+	.pageBar img{ margin-right:5px; cursor:pointer;}
+	.txtNum{ width:35px; height:18px;}
+	.btnGO{ background-image:url("plugins/pager/images/btn_go.gif");background-position: left top;background-repeat: no-repeat; width:25px; height:20px;overflow: hidden;cursor: pointer; border:0;}
+	.fontBold{ font-weight:bold;}
+</style>
+<div class="pageBar">
+	<table>
+		<tbody>
+		<tr>
+			<td>
+			<img src="plugins/pager/images/icon_first.gif" class="imgFirst" title="第一页"/>
+			<img src="plugins/pager/images/icon_pre.gif" class="imgPre" title="上一页"/>
+			<img src="plugins/pager/images/icon_next.gif" class="imgNext" title="下一页"/>
+			<img src="plugins/pager/images/icon_end.gif" class="imgLast" title="最后一页"/>
+			</td>
+			<td style=" width:65px; white-space:nowrap;"><input name="" type="text" class="txtNum"/><input name="" type="button" class="btnGO" value=" "/></td>
+			<td style=" width:120px;"><span class="fontBold spnpages"></span>页 &nbsp; &nbsp; <span class="spnRecords u_hide">共<span class="fontBold records"></span>条</span></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	function FnPage(){
+		var oSet={
+		pageIndex:1,
+		pageSize:10,
+		pages:0,
+		initpages:0,
+		records:0,		
+		bCal:false,
+		context:""
+		};		
+		var oTab={
+			fnInit:function(fn,_oSet){
+					//$.ajaxSetup({complete:function(){
+						//alert();
+					//}});
+					$.extend(oSet,_oSet);
+					this.fnCallback=fn||function(){};
+					oSet.pageIndex=oSet.pageIndex||1;				
+					$(".imgFirst",oSet.context).click(function(){//首页					
+						oSet.pageIndex=1;
+						oTab.fnShow();
+					});				
+					$(".imgPre",oSet.context).click(function(){//上一页
+						if(oSet.pageIndex>1){
+							oSet.pageIndex--;
+						}else{
+							oSet.pageIndex=1;
+						};				
+						oTab.fnShow();			
+					});
+					$(".imgNext",oSet.context).click(function(){//下一页
+						if(oSet.pageIndex&&oSet.pageIndex<oSet.pages){
+							oSet.pageIndex++;
+						}					
+						oTab.fnShow();
+					});
+					$(".imgLast",oSet.context).click(function(){//尾页
+						oSet.pageIndex=oSet.pages||1;
+						oTab.fnShow();
+					});				
+					
+					$(".btnGO",oSet.context).click(function(){//Go
+						var txtNum=$(".txtNum",oSet.context).val();
+						if(txtNum&&!isNaN(txtNum)&&parseInt(txtNum)<=oSet.pages&&parseInt(txtNum)>=1){
+							oSet.pageIndex=parseInt(txtNum);
+						}else{
+							alert("您的输入无法查询，请重新输入。");
+							return;
+						}					
+						oTab.fnShow();
+					});
+					$(".txtNum",oSet.context).keypress(function(e){
+						var keycode = e.keyCode ? e.keyCode : e.which;
+						if (keycode == 13) {
+							$(".btnGO",oSet.context).click();
+						}
+					});
+			},
+			fnShow:function(){
+			     if(this.fnCallback){this.fnCallback(oSet);}
+				 if(oSet.bCal){this.fnPageInfo();}
+			},
+			fnPage:function(pageIndex){
+                    oSet.pageIndex=pageIndex;
+                    oTab.fnShow();
+			},
+			fnPageInfo:function(){
+				 var records=oSet.records||0;
+				 var pageSize=oSet.pageSize;
+				 var pageIndex=oSet.pageIndex;
+				 var context=oSet.context;
+				 var pages=parseInt((records+pageSize-1)/pageSize);
+				 oSet.pages=pages==0?oSet.initpages:pages;
+				 $(".spnpages",context).text('{0}/{1}'.format(pageIndex,oSet.pages));
+				 //if(oSet.records){
+				 $(".spnRecords",context).show();$(".records",context).text(records);
+				 //}
+				 $(".txtNum",context).val("");
+			}
+		};
+		return oTab;
+	}
+</script>

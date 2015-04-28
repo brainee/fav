@@ -1,0 +1,89 @@
+﻿<div class="w_block">
+	<form action="putImg" method="post" id="myform">
+		<table class="u_tableA">
+			<tr>
+				<td class="u_m">小图片：</td>
+				<td>
+					<div class="u_imgCan" style="height:150px;">
+						<input type="file" id="img" name="img"/>
+						<img src="../plugins/page/images/loading.gif" alt="" class="u_hide"/>
+					</div>
+				</td>
+				<td class="u_m">大图片：</td>
+				<td>
+					<div class="u_imgCan" style="height:150px;">
+						<input type="file" id="img2" name="img2"/>
+						<img src="../plugins/page/images/loading.gif" alt="" class="u_hide"/>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>图片名称：</td>
+				<td><input type="text" class="w_text" id="imgName" name="imgName"/></td>
+				<td>图片目录：</td>
+				<td><input type="text" class="w_text" id="dir" name="dir" /></td>
+			</tr>
+			<tr>
+				<td>链接地址：</td>
+				<td colspan="3"><input type="text" class="w_text" id="url" name="url"/></td>
+			</tr>
+			<tr>
+				<td>状态</td>
+				<td>
+					<select name="stat" id="stat">
+						<option value="1">显示</option>
+						<option value="0">隐藏</option>
+					</select>
+				</td>
+				<td>是否在外部打开：</td>
+				<td>
+					<select name="out" id="out">
+						<option value="1">外部</option>
+						<option value="0">内部</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>图片描述</td>
+				<td colspan="3"><textarea name="disc" id="disc" cols="30" rows="10"></textarea></td>
+			</tr>
+		</table>
+		<input type="submit" value="提交" class="w_buttonA"/>
+	</form>
+</div>
+<script type="text/javascript">
+     $('#myform').submit(function(e){
+          e.preventDefault();
+          var thisform = this;
+		  var small=$('#myform :file').eq(0).val();
+		  var big=$('#myform :file').eq(1).val();
+		  if($('#myform').find('img:hidden').length>0){
+			  if(small==""||big==""){
+				tip('文件不能为空！');
+				return false;
+			  }		  
+		  }
+          $(this).ajaxSubmit({//#myform
+               //url : uploadURL,
+               url: "putImg?_=" + new Date().getTime(),
+               type: 'POST',
+               //dataType: 'jsonp',
+               success: function (json, status) {
+                    json=fnJSON(json);
+                    if (json.err == true) {
+                         tip("上传失败,请稍候再试!");
+                    } else {
+                         var paths = json.data.length>0?json.data[0]:{};
+                         $(thisform).find("img").eq(0).show().attr('src','../plugins/files/'+paths.img);
+                         $(thisform).find("img").eq(1).show().attr('src','../plugins/files/'+paths.img2);
+                         tip("上传成功！");                        
+                    }
+               },
+               error: function (jqXHR, textStatus, errorThrown) {
+                    tip("发生错误,请稍候再试!");              
+               }
+               //,iframeTarget: '#myifr'
+          });
+          return false;
+     });
+</script>

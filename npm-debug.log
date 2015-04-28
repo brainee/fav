@@ -1,0 +1,77 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   'readable-stream' ]
+2 info using npm@1.1.36
+3 info using node@v0.8.2
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose config file C:\Users\yongzheng\.npmrc
+6 verbose config file C:\Program Files\nodejs\etc\npmrc
+7 verbose config file C:\Program Files\nodejs\node_modules\npm\npmrc
+8 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\package.json
+9 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\async\package.json
+10 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\connect-mongo\package.json
+11 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\ejs\package.json
+12 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\express\package.json
+13 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\express-partials\package.json
+14 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\log4js\package.json
+15 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\log4js7\package.json
+16 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\log4js8\package.json
+17 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\log4js9\package.json
+18 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\mongodb\package.json
+19 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\mongoskin\package.json
+20 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\node-xml\package.json
+21 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\readable-stream\package.json
+22 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\semver\package.json
+23 verbose read json D:\Work\Applications\PlatForm\src\nodejs\weixin\node_modules\underscore\package.json
+24 verbose from cache D:\Work\Applications\PlatForm\src\nodejs\weixin\package.json
+25 verbose readDependencies using package.json deps
+26 verbose cache add [ 'readable-stream', null ]
+27 silly cache add name=undefined spec="readable-stream" args=["readable-stream",null]
+28 verbose parsed url { pathname: 'readable-stream',
+28 verbose parsed url   path: 'readable-stream',
+28 verbose parsed url   href: 'readable-stream' }
+29 silly lockFile c476f42d-readable-stream readable-stream
+30 verbose lock readable-stream C:\Users\yongzheng\AppData\Roaming\npm-cache\c476f42d-readable-stream.lock
+31 silly lockFile c476f42d-readable-stream readable-stream
+32 verbose addNamed [ 'readable-stream', '' ]
+33 verbose addNamed [ null, '' ]
+34 silly lockFile acade489-readable-stream readable-stream@
+35 verbose lock readable-stream@ C:\Users\yongzheng\AppData\Roaming\npm-cache\acade489-readable-stream.lock
+36 silly addNameRange { name: 'readable-stream', range: '', hasData: false }
+37 verbose url raw readable-stream
+38 verbose url resolving [ 'https://registry.npmjs.org/', './readable-stream' ]
+39 verbose url resolved https://registry.npmjs.org/readable-stream
+40 info retry registry request attempt 1 at 15:50:02
+41 http GET https://registry.npmjs.org/readable-stream
+42 info retry will retry, error on last attempt: Error: SSL Error: CERT_UNTRUSTED
+43 info retry registry request attempt 2 at 15:50:12
+44 http GET https://registry.npmjs.org/readable-stream
+45 info retry will retry, error on last attempt: Error: SSL Error: CERT_UNTRUSTED
+46 info retry registry request attempt 3 at 15:51:13
+47 http GET https://registry.npmjs.org/readable-stream
+48 silly lockFile acade489-readable-stream readable-stream@
+49 error Error: SSL Error: CERT_UNTRUSTED
+49 error     at ClientRequest.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\main.js:440:26)
+49 error     at ClientRequest.g (events.js:185:14)
+49 error     at ClientRequest.EventEmitter.emit (events.js:88:17)
+49 error     at HTTPParser.parserOnIncomingClient [as onIncoming] (http.js:1445:7)
+49 error     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:111:23)
+49 error     at CleartextStream.socketOnData [as ondata] (http.js:1356:20)
+49 error     at CleartextStream.CryptoStream._push (tls.js:396:27)
+49 error     at SecurePair.cycle (tls.js:750:20)
+49 error     at EncryptedStream.CryptoStream.write (tls.js:131:13)
+49 error     at Socket.ondata (stream.js:38:26)
+49 error  [Error: SSL Error: CERT_UNTRUSTED]
+50 error You may report this log at:
+50 error     <http://github.com/isaacs/npm/issues>
+50 error or email it to:
+50 error     <npm-@googlegroups.com>
+51 error System Windows_NT 6.1.7601
+52 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i" "readable-stream"
+53 error cwd D:\Work\Applications\PlatForm\src\nodejs\weixin
+54 error node -v v0.8.2
+55 error npm -v 1.1.36
+56 error message SSL Error: CERT_UNTRUSTED
+57 verbose exit [ 1, true ]
